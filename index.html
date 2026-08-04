@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Hanna, mi MJ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- PANTALLA DE INICIO (Estilo Portada / Caja de Cómic Marvel) -->
+    <div id="inicio-screen" class="active-screen">
+        <div class="content-wrapper" style="background-color: rgba(15, 0, 0, 0.92); border: 5px solid #FFDE00; border-radius: 16px; padding: 35px 20px; box-shadow: 10px 10px 0px #B22222, 0 0 25px rgba(255, 222, 0, 0.5);">
+            <div style="background-color: #B22222; color: #FFF; font-family: var(--comic-font); font-size: 1.4rem; padding: 6px 14px; display: inline-block; margin-bottom: 18px; border: 3px solid #000; transform: rotate(-2deg); box-shadow: 3px 3px 0px #000;">EDICIÓN ESPECIAL #1</div>
+            <h1 class="comic-text central-quote" style="font-size: 2.8rem; text-shadow: 3px 3px 0px #000; color: #FFF; line-height: 1.3;">"Algunas personas llegan para irse... ¡pero yo llegué para quedarme a tu lado en este multiverso!"</h1>
+            <button id="entrar-btn" class="marvel-btn" style="margin-top: 15px; font-size: 2.2rem; padding: 16px 40px;">¡ENTRAR AL MULTIVERSO!</button>
+        </div>
+    </div>
+
+    <!-- PANTALLA PRINCIPAL (Menú con Queens_marvel.jpg) -->
+    <div id="main-screen">
+        <header>
+            <h1 class="comic-text main-title" style="font-size: 4.6rem;">Lo que hice y haré por ti</h1>
+        </header>
+        
+        <main class="grid-container">
+            <div class="grid-item" onclick="showSection('canciones')">
+                <h3 class="comic-text">Nuestra Playlist</h3>
+                <p>15 canciones que me recuerdan a ti</p>
+            </div>
+            <div class="grid-item" onclick="showSection('cosas-amo')">
+                <h3 class="comic-text">20 Cosas Especiales</h3>
+                <p>Lo que más amo de ti</p>
+            </div>
+            <div class="grid-item" onclick="showSection('personajes')">
+                <h3 class="comic-text">Nuestros Dobles</h3>
+                <p>Personajes que nos representan</p>
+            </div>
+            <div class="grid-item" onclick="showSection('carta')">
+                <h3 class="comic-text">Un Mensaje Especial</h3>
+                <p>Presiona a Deadpool...</p>
+            </div>
+        </main>
+
+        <footer>
+            <button id="salir-btn" class="marvel-btn exit-btn" onclick="triggerExit()">Salir de la página</button>
+        </footer>
+    </div>
+
+    <!-- SECCIONES INTERNAS (Con Queens_marvel.jpg) -->
+
+    <!-- Canciones -->
+    <div id="canciones-section" class="inner-section">
+        <button class="back-btn" onclick="showSection('main')">← Volver</button>
+        <h2 class="comic-text section-title">15 canciones que me recuerdan a ti</h2>
+        <ol id="playlist">
+            <li onclick="playSong(1)">You Rock My World - Michael Jackson</li>
+            <li onclick="playSong(2)">La Mujer Que Bota Fuego - Manuel Medrano</li>
+            <li onclick="playSong(3)">Besame Sin Sentir - Micro TDH</li>
+            <li onclick="playSong(4)">No digas nada - LATIN MAFIA</li>
+            <li onclick="playSong(5)">Tienes el Don - Rels B</li>
+            <li onclick="playSong(6)">Reina Pepiada - Álvaro Díaz</li>
+            <li onclick="playSong(7)">Eres - Café Tacvba</li>
+            <li onclick="playSong(8)">Heaven Can't Wait - Michael Jackson</li>
+            <li onclick="playSong(9)">Labios Rotos - Zoé</li>
+            <li onclick="playSong(10)">Can't take My eyes off You - Frankie valli</li>
+            <li onclick="playSong(11)">Can't help falling in love - Elvis Presley</li>
+            <li onclick="playSong(12)">Solo por vos - trueno</li>
+            <li onclick="playSong(13)">My Kind Of Woman - Mac Demarco</li>
+            <li onclick="playSong(14)">this is what falling in love feels - JVKE</li>
+            <li onclick="playSong(15)">it's been a long long time - Kitty kallen y the Harry James</li>
+        </ol>
+    </div>
+
+    <!-- 20 Cosas que amo de ti -->
+    <div id="cosas-amo-section" class="inner-section">
+        <button class="back-btn" onclick="showSection('main')">← Volver</button>
+        <h2 class="comic-text section-title">20 cosas que amo de ti</h2>
+        <ul>
+            <li>Tu forma de ser</li>
+            <li>Tu forma de querer</li>
+            <li>Tu forma de pensar</li>
+            <li>Tu forma de seguir adelante</li>
+            <li>Tu forma de hablar</li>
+            <li>Tu forma de entender</li>
+            <li>Tu sonrisa (especialmente esa que pones cuando estás distraída)</li>
+            <li>Tu sentido del humor (que solo nosotros entendemos)</li>
+            <li>Tu inteligencia</li>
+            <li>Tu determinación (cuando te propones algo, lo logras)</li>
+            <li>Tu olor</li>
+            <li>Cómo me miras (siento que me lees el alma)</li>
+            <li>Tu paciencia (que tienes mucha conmigo)</li>
+            <li>Tu estilo único, Hanna</li>
+            <li>Tu voz (podría escucharte hablar horas)</li>
+            <li>Cómo te preocupas por los demás</li>
+            <li>Tu sinceridad</li>
+            <li>Tu creatividad</li>
+            <li>Tu esencia</li>
+            <li>Que eres *tú*, sin filtros, y eso es lo que más me atrapa</li>
+        </ul>
+    </div>
+
+    <!-- Personajes (Con hazañas detalladas y expandidas de cada uno) -->
+    <div id="personajes-section" class="inner-section">
+        <button class="back-btn" onclick="showSection('main')">← Volver</button>
+        <h2 class="comic-text section-title">Personajes que nos representan</h2>
+        <div class="collage">
+            <img src="Steverogersandpeggy.jpg" alt="Peggy y Steve" class="collage-img">
+            <img src="Peter_andMJ.jpg" alt="Peter y MJ" class="collage-img">
+            <img src="Milesandgwen.jpg" alt="Miles y Gwen" class="collage-img">
+            <img src="Dama_y_vagabundo.jpg" alt="Dama y Vagabundo" class="collage-img">
+            <img src="Fireboy_watergirl.jpg" alt="Fireboy y Watergirl" class="collage-img">
+            <img src="Cascayguts.jpg" alt="Guts y Casca" class="collage-img">
+            <img src="Cadaverdelanovia.jpg" alt="Victor y Emily" class="collage-img">
+        </div>
+        
+        <div class="section-quote comic-text" style="font-size: 1.25rem; text-align: left; line-height: 1.65; padding: 22px;">
+            <p style="margin-bottom: 14px;"><strong>• Steve y Peggy:</strong> Te esperaría las décadas que hicieran falta, congelaría el tiempo si fuera necesario y cruzaría universos enteros solo para cumplir ese baile pendiente a tu lado, porque lo nuestro trasciende cualquier época.</p>
+            <p style="margin-bottom: 14px;"><strong>• Peter y MJ:</strong> Te cuidaría en cada caída, cargando con el peso del mundo si es preciso, y saltaría a cualquier abismo con tal de mantenerte a salvo en este universo tan caótico.</p>
+            <p style="margin-bottom: 14px;"><strong>• Miles y Gwen:</strong> Rompería las reglas de todas las dimensiones, desafiaría al destino y atravesaría portales infinitos solo para encontrarte sin importar la distancia o las probabilidades.</p>
+            <p style="margin-bottom: 14px;"><strong>• Dama y Vagabundo:</strong> Compartiría cada aventura, cada pequeña cena improvisada y cada momento sencillo, sabiendo que lo único que realmente importa es estar compartiendo el camino contigo.</p>
+            <p style="margin-bottom: 14px;"><strong>• Fireboy y Watergirl:</strong> Haríamos el equipo perfecto superando cada trampa, laberinto y obstáculo, totalmente sincronizados, cubriéndonos las espaldas y sin dudar ni un solo segundo.</p>
+            <p style="margin-bottom: 14px;"><strong>• Guts y Casca:</strong> Te protegería con el alma y la vida entera, peleando contra cualquier tormenta u oscuridad con tal de devolverte la luz y verte sonreír.</p>
+            <p style="margin-bottom: 0;"><strong>• Victor y Emily:</strong> Cruzaría cualquier frontera, incluso la línea invisible entre lo real y lo imposible, guiado por la lealtad, la complicidad y el afecto más honesto y puro.</p>
+        </div>
+    </div>
+
+    <!-- Carta -->
+    <div id="carta-section" class="inner-section">
+        <button class="back-btn" onclick="showSection('main')">← Volver</button>
+        <h2 class="comic-text section-title">Un Mensaje Especial</h2>
+        <div class="envelope" onclick="openLetter()">
+            <img src="Deadpoolcarta.png" alt="Deadpool Carta">
+        </div>
+        <div id="letter-content" class="letter-text"></div>
+    </div>
+
+    <!-- PANTALLA DE SALIDA -->
+    <div id="exit-screen">
+        <div class="animation-container">
+            <img id="spidey-dp-duo" src="Spideyydeadpool2.png" alt="Spidey y Deadpool bajando">
+            <img id="spidey-solo" src="Spidermanabajo.png" alt="Spidey abajo">
+            <img id="spidey-sentado" src="Spidey_sentado.png" alt="Spidey sentado al fondo">
+            <img id="dp-solo" src="Deadpoolcolgado.png" alt="Deadpool colgado">
+            
+            <div id="spidey-bubble" class="speech-bubble">
+                <p class="bubble-text">Eres mi vista favorita en cualquier universo, Hanna. Vuelve pronto a este ladito tuyo, ojala verte pronto por acá, te amo con el alma aunque esta historia recien comienze.</p>
+            </div>
+            
+            <div id="deadpool-bubble" class="speech-bubble deadpool-bubble">
+                <p class="bubble-text">Sí... cómo sea, yo esperaba que al menos se dieran un beso o algo parecido. Hubiera sido ligeramente más entretenido.
+                Cómo quiera, tu personita detrás de la pantalla, hanna es tu nombre, ¿cierto? bueno espero que dures con él y lleguen a viejitos, me los imaginé a ambos ayudándose a caminar porque los dos tendrán dolores de ciática y lumbar, ayyy
+            que bonito 💗,  asi que regresa y mantenme al tanto de eso ✔️.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
+
