@@ -152,7 +152,7 @@ function playSong(num) {
     const fileName = songFiles[num];
     if (!fileName) return;
 
-    currentAudio = new Audio(`audios/${fileName}`);
+    currentAudio = new Audio(fileName);
     
     currentAudio.play().catch(error => {
         console.log("Intentando ruta alternativa...", error);
