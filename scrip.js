@@ -48,40 +48,60 @@ function showSection(sectionId) {
         div.classList.remove('active-screen');
     });
 
-    if (sectionId === 'main') {
-        document.getElementById('main-screen').classList.add('active-screen');
-    } else if (sectionId === 'canciones') {
-        document.getElementById('canciones-section').classList.add('active-screen');
-    } else if (sectionId === 'cosas-amo') {
-        document.getElementById('cosas-amo-section').classList.add('active-screen');
-    } else if (sectionId === 'personajes') {
-        document.getElementById('personajes-section').classList.add('active-screen');
-    } else if (sectionId === 'carta') {
-        document.getElementById('carta-section').classList.add('active-screen');
+    const targetMap = {
+        'main': 'main-screen',
+        'canciones': 'canciones-section',
+        'cosas-amo': 'cosas-amo-section',
+        'personajes': 'personajes-section',
+        'carta': 'carta-section'
+    };
+
+    const targetId = targetMap[sectionId];
+    if (targetId) {
+        const el = document.getElementById(targetId);
+        if (el) el.classList.add('active-screen');
     }
 }
 
-// Botón Entrar inicial
-document.getElementById('entrar-btn').addEventListener('click', () => {
-    playClickSound();
-    document.getElementById('inicio-screen').classList.remove('active-screen');
-    document.getElementById('main-screen').classList.add('active-screen');
+// Configurar evento del botón inicial de forma segura al cargar el DOM
+document.addEventListener('DOMContentLoaded', () => {
+    const entrarBtn = document.getElementById('entrar-btn');
+    if (entrarBtn) {
+        entrarBtn.addEventListener('click', () => {
+            playClickSound();
+            const inicioScreen = document.getElementById('inicio-screen');
+            const mainScreen = document.getElementById('main-screen');
+            if (inicioScreen) inicioScreen.classList.remove('active-screen');
+            if (mainScreen) mainScreen.classList.add('active-screen');
+        });
+    }
 });
 
 // Secuencia de Salida con Animación y Transición de Spidey
 function triggerExit() {
     playClickSound();
-    document.getElementById('main-screen').classList.remove('active-screen');
-    document.getElementById('exit-screen').classList.add('active-screen');
+    const mainScreen = document.getElementById('main-screen');
+    const exitScreen = document.getElementById('exit-screen');
+    if (mainScreen) mainScreen.classList.remove('active-screen');
+    if (exitScreen) exitScreen.classList.add('active-screen');
 
     const duo = document.getElementById('spidey-dp-duo');
+    if (!duo) return;
     
     duo.style.top = '-400px';
-    document.getElementById('spidey-solo').style.display = 'none';
-    document.getElementById('dp-solo').style.display = 'none';
-    document.getElementById('spidey-sentado').style.display = 'none';
-    document.getElementById('spidey-bubble').style.display = 'none';
-    document.getElementById('deadpool-bubble').style.display = 'none';
+    
+    const spideySolo = document.getElementById('spidey-solo');
+    const dpSolo = document.getElementById('dp-solo');
+    const spideySentado = document.getElementById('spidey-sentado');
+    const spideyBubble = document.getElementById('spidey-bubble');
+    const dpBubble = document.getElementById('deadpool-bubble');
+
+    if (spideySolo) spideySolo.style.display = 'none';
+    if (dpSolo) dpSolo.style.display = 'none';
+    if (spideySentado) spideySentado.style.display = 'none';
+    if (spideyBubble) spideyBubble.style.display = 'none';
+    if (dpBubble) dpBubble.style.display = 'none';
+    
     duo.style.display = 'block';
 
     setTimeout(() => {
@@ -90,17 +110,17 @@ function triggerExit() {
 
     setTimeout(() => {
         duo.style.display = 'none';
-        document.getElementById('spidey-solo').style.display = 'block';
-        document.getElementById('dp-solo').style.display = 'block';
-        document.getElementById('spidey-bubble').style.display = 'block';
+        if (spideySolo) spideySolo.style.display = 'block';
+        if (dpSolo) dpSolo.style.display = 'block';
+        if (spideyBubble) spideyBubble.style.display = 'block';
     }, 1900); 
 
     setTimeout(() => {
-        document.getElementById('spidey-solo').style.display = 'none';
-        document.getElementById('spidey-bubble').style.display = 'none';
+        if (spideySolo) spideySolo.style.display = 'none';
+        if (spideyBubble) spideyBubble.style.display = 'none';
         
-        document.getElementById('spidey-sentado').style.display = 'block';
-        document.getElementById('deadpool-bubble').style.display = 'block';
+        if (spideySentado) spideySentado.style.display = 'block';
+        if (dpBubble) dpBubble.style.display = 'block';
     }, 5500); 
 }
 
@@ -108,6 +128,8 @@ function triggerExit() {
 function openLetter() {
     playClickSound();
     const letter = document.getElementById('letter-content');
+    if (!letter) return;
+    
     if (letter.style.display === 'block') {
         letter.style.display = 'none';
     } else {
@@ -120,7 +142,7 @@ function openLetter() {
     }
 }
 
-// Reproductor de canciones con la ruta exacta a la carpeta "Audios"
+// Reproductor de canciones con soporte flexible de carpetas
 function playSong(num) {
     playClickSound();
 
@@ -132,11 +154,13 @@ function playSong(num) {
     const fileName = songFiles[num];
     if (!fileName) return;
 
-    currentAudio = new Audio(`Audios/${fileName}`);
+    currentAudio = new Audio(`audios/${fileName}`);
     
     currentAudio.play().catch(error => {
-        console.log("No se pudo reproducir automáticamente:", error);
-        alert(`No se encontró el archivo '${fileName}' en la carpeta Audios.`);
+        console.log("Intentando ruta alternativa...", error);
+        currentAudio = new Audio(`Audios/${fileName}`);
+        currentAudio.play().catch(err => {
+            console.log("No se pudo reproducir el archivo:", err);
+        });
     });
-      }
-      
+}
