@@ -63,19 +63,17 @@ function showSection(sectionId) {
     }
 }
 
-// Configurar evento del botón inicial de forma segura al cargar el DOM
-document.addEventListener('DOMContentLoaded', () => {
-    const entrarBtn = document.getElementById('entrar-btn');
-    if (entrarBtn) {
-        entrarBtn.addEventListener('click', () => {
-            playClickSound();
-            const inicioScreen = document.getElementById('inicio-screen');
-            const mainScreen = document.getElementById('main-screen');
-            if (inicioScreen) inicioScreen.classList.remove('active-screen');
-            if (mainScreen) mainScreen.classList.add('active-screen');
-        });
-    }
-});
+// Configurar evento del botón inicial (ejecución directa)
+const entrarBtn = document.getElementById('entrar-btn');
+if (entrarBtn) {
+    entrarBtn.addEventListener('click', () => {
+        playClickSound();
+        const inicioScreen = document.getElementById('inicio-screen');
+        const mainScreen = document.getElementById('main-screen');
+        if (inicioScreen) inicioScreen.classList.remove('active-screen');
+        if (mainScreen) mainScreen.classList.add('active-screen');
+    });
+}
 
 // Secuencia de Salida con Animación y Transición de Spidey
 function triggerExit() {
