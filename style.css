@@ -1,0 +1,370 @@
+:root {
+    --marvel-red: #B22222;
+    --marvel-blue: #000080;
+    --marvel-yellow: #FFDE00;
+    --text-white: #FFFFFF;
+    --comic-font: 'Bangers', cursive;
+    --main-font: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #500000;
+    color: var(--text-white);
+    font-family: var(--main-font);
+    overflow: hidden; 
+}
+
+.comic-text {
+    font-family: var(--comic-font);
+    letter-spacing: 2px;
+}
+
+/* Pantallas y secciones ocupando el 100% real sin espacios vacíos */
+#inicio-screen, #main-screen, #canciones-section, #cosas-amo-section, #personajes-section, #carta-section, #exit-screen {
+    display: none; 
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    padding: 20px 12px;
+    box-sizing: border-box;
+}
+
+#inicio-screen.active-screen, 
+#main-screen.active-screen, 
+#canciones-section.active-screen, 
+#cosas-amo-section.active-screen, 
+#personajes-section.active-screen, 
+#carta-section.active-screen, 
+#exit-screen.active-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Pantalla de inicio */
+#inicio-screen { 
+    justify-content: center; 
+    align-items: center;
+    background-color: #500000;
+    background-image: 
+        radial-gradient(circle at 85% 15%, rgba(0, 50, 180, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 15% 85%, rgba(0, 50, 180, 0.8) 0%, transparent 50%),
+        repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(0, 0, 120, 0.3) 25px, rgba(0, 0, 120, 0.3) 50px),
+        repeating-linear-gradient(-45deg, transparent, transparent 25px, rgba(0, 0, 0, 0.4) 25px, rgba(0, 0, 120, 0.4) 50px);
+}
+
+.content-wrapper {
+    width: 98%;
+    max-width: 100%;
+    text-align: center;
+    padding: 0 5px;
+}
+
+/* Menú principal y secciones con Queens_marvel.jpg */
+#main-screen, .inner-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.82)), url('Queens_marvel.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#main-screen { 
+    justify-content: space-around; 
+    padding-top: 25px; 
+    padding-bottom: 25px;
+}
+.inner-section { 
+    justify-content: flex-start; 
+    padding-top: 25px;
+    padding-bottom: 60px;
+    width: 100%;
+}
+
+/* Pantalla final con Ciudad_marvel.jpg */
+#exit-screen { 
+    justify-content: center; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Ciudad_marvel.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Tipografías gigantescas estilo cómic de alta presencia */
+.main-title {
+    font-size: 4.5rem;
+    color: #FFF;
+    text-shadow: 4px 4px 0px var(--marvel-blue), 9px 9px 0px var(--marvel-red);
+    text-align: center;
+    margin: 10px 0;
+}
+
+.central-quote { 
+    font-size: 3.2rem; 
+    text-align: center; 
+    margin-bottom: 35px; 
+    line-height: 1.25;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+}
+
+.section-title { 
+    font-size: 3.3rem; 
+    color: #FFF; 
+    text-shadow: 4px 4px 0px var(--marvel-red), 8px 8px 0px #000; 
+    text-align: center; 
+    margin-bottom: 25px;
+    width: 100%;
+    line-height: 1.1;
+}
+
+/* Menú Principal Grid Gigante */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 98%;
+    max-width: 100%;
+    margin: 10px auto;
+}
+
+.grid-item {
+    background-color: rgba(20, 0, 0, 0.95);
+    border: 4px solid var(--marvel-blue);
+    border-radius: 16px;
+    padding: 28px 12px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 0 22px rgba(0, 0, 128, 0.85);
+}
+
+.grid-item h3 { margin: 0; font-size: 2.3rem; color: #FFF; }
+.grid-item p { margin: 10px 0 0; font-size: 1.35rem; font-weight: 700; color: #ffeb3b; }
+
+/* Botones monstruosos y llenadores */
+.marvel-btn {
+    font-family: var(--comic-font);
+    font-size: 2.4rem;
+    padding: 18px 40px;
+    border: 4px solid #FFF;
+    border-radius: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#entrar-btn { 
+    background-color: var(--marvel-red); 
+    color: #FFF; 
+    box-shadow: 8px 8px 0px var(--marvel-blue); 
+    font-size: 3rem;
+    padding: 22px 50px;
+}
+
+.exit-btn { 
+    margin: 20px auto; 
+    background-color: var(--marvel-blue); 
+    color: #FFF; 
+    box-shadow: 8px 8px 0px var(--marvel-red); 
+    font-size: 2.6rem;
+}
+
+.back-btn { 
+    font-family: var(--main-font); 
+    font-weight: 800;
+    font-size: 1.35rem; 
+    padding: 12px 22px; 
+    background: rgba(0,0,0,0.85); 
+    border: 3px solid #FFF; 
+    color: #FFF; 
+    cursor: pointer; 
+    align-self: flex-start; 
+    margin-bottom: 20px; 
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+}
+
+/* Listas de canciones y 20 cosas en tamaño gigante */
+#playlist { 
+    list-style: none; 
+    padding: 0; 
+    width: 98%; 
+    max-width: 100%;
+}
+
+#playlist li { 
+    background-color: rgba(178, 34, 34, 0.85); 
+    border: 3px solid var(--marvel-red); 
+    margin: 14px 0; 
+    padding: 20px 22px; 
+    border-radius: 12px; 
+    font-size: 1.5rem; 
+    font-weight: 800;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.7);
+    cursor: pointer;
+}
+
+#cosas-amo-section ul {
+    list-style: none;
+    padding: 0;
+    width: 98%;
+    max-width: 100%;
+}
+
+#cosas-amo-section li {
+    background-color: rgba(20, 0, 0, 0.92);
+    border: 3px solid var(--marvel-blue);
+    margin: 14px 0;
+    padding: 20px 22px;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.7);
+}
+
+/* Collage de personajes enorme (ocupa casi todo el ancho) */
+.collage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    width: 98%;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 5px;
+}
+
+.collage-img {
+    width: 44vw;
+    height: 44vw;
+    max-width: 220px;
+    max-height: 220px;
+    object-fit: cover;
+    border: 5px solid #FFF;
+    box-shadow: 8px 10px 20px rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.collage-img:nth-child(1) { transform: rotate(-4deg) translateY(5px); }
+.collage-img:nth-child(2) { transform: rotate(3deg) translateX(-4px); }
+.collage-img:nth-child(3) { transform: rotate(-3deg) translateY(-4px); }
+.collage-img:nth-child(4) { transform: rotate(5deg) translateX(4px); }
+.collage-img:nth-child(5) { transform: rotate(-5deg) translateY(6px); }
+.collage-img:nth-child(6) { transform: rotate(3deg) translateX(-3px); }
+.collage-img:nth-child(7) { transform: rotate(-4deg) translateY(-2px); }
+
+.section-quote { 
+    font-size: 1.6rem; 
+    text-align: center; 
+    margin-top: 25px; 
+    color: #FFF; 
+    background-color: rgba(0,0,128,0.9); 
+    padding: 20px; 
+    border-radius: 14px; 
+    width: 95%;
+    max-width: 100%;
+    line-height: 1.5;
+    border: 3px solid #FFF;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.7);
+}
+
+/* Carta de Deadpool enorme */
+.envelope { margin-top: 30px; cursor: pointer; text-align: center; }
+.envelope img { width: 260px; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.9)); }
+
+.letter-text { 
+    display: none; 
+    margin-top: 30px; 
+    padding: 28px; 
+    background-color: rgba(10, 0, 0, 0.98); 
+    border: 4px solid var(--marvel-red); 
+    border-radius: 16px; 
+    font-size: 1.5rem; 
+    line-height: 1.75; 
+    text-align: justify; 
+    width: 95%;
+    max-width: 100%;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.85);
+}
+
+/* Animación de Salida y Globos Estilo Cómic Gigantes */
+.animation-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#spidey-dp-duo {
+    position: absolute;
+    top: -400px;
+    width: 270px;
+    transition: top 1.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#spidey-solo, #dp-solo, #spidey-sentado {
+    position: absolute;
+    display: none;
+}
+
+#spidey-solo { 
+    top: 25px; 
+    left: 10px; 
+    width: 230px; 
+}
+
+#spidey-sentado {
+    top: 70px;
+    left: 15px;
+    width: 130px;
+    z-index: 5;
+}
+
+#dp-solo { 
+    top: 25px; 
+    right: 10px; 
+    width: 230px; 
+}
+
+/* 💬 Globos de texto gigantes y súper legibles */
+.speech-bubble {
+    position: absolute;
+    background-color: #FFF;
+    color: #000;
+    border: 4px solid #000;
+    border-radius: 24px;
+    padding: 20px 22px;
+    width: 260px;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.95);
+    display: none;
+    z-index: 10;
+}
+
+#spidey-bubble {
+    top: 210px;
+    left: 10px; 
+}
+
+.deadpool-bubble {
+    background-color: #FFEE55; 
+    color: #000;
+    border: 4px solid #000;
+    top: 320px; 
+    right: 10px;
+    width: 300px;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.95);
+    z-index: 12;
+}
+
+.bubble-text {
+    margin: 0;
+    font-size: 1.2rem;
+    font-family: var(--main-font);
+    font-weight: 800;
+    line-height: 1.4;
+      }
+      
