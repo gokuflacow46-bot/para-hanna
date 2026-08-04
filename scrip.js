@@ -63,10 +63,11 @@ function showSection(sectionId) {
     }
 }
 
-// Configurar evento del botón inicial (ejecución directa)
+// Configurar evento del botón inicial (ejecución directa)const entrarBtn = document.getElementById('entrar-btn');
 const entrarBtn = document.getElementById('entrar-btn');
 if (entrarBtn) {
     entrarBtn.addEventListener('click', () => {
+        alert("¡El botón sí está respondiendo!"); // <-- Esto es lo nuevo
         playClickSound();
         const inicioScreen = document.getElementById('inicio-screen');
         const mainScreen = document.getElementById('main-screen');
@@ -74,6 +75,7 @@ if (entrarBtn) {
         if (mainScreen) mainScreen.classList.add('active-screen');
     });
 }
+
 
 // Secuencia de Salida con Animación y Transición de Spidey
 function triggerExit() {
