@@ -126,7 +126,7 @@ setTimeout(() => {
 
     document.getElementById("final-message").classList.add("show");
 
-}, 20000);
+}, 30000);
 
 // Abrir carta de Deadpool
 function openLetter() {
