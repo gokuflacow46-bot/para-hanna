@@ -121,6 +121,12 @@ function triggerExit() {
         if (dpBubble) dpBubble.style.display = 'block';
     }, 5500); 
 }
+// Final cinematográfico
+setTimeout(() => {
+
+    document.getElementById("final-message").classList.add("show");
+
+}, 12000);
 
 // Abrir carta de Deadpool
 function openLetter() {
