@@ -63,11 +63,10 @@ function showSection(sectionId) {
     }
 }
 
-// Configurar evento del botón inicial (ejecución directa)const entrarBtn = document.getElementById('entrar-btn');
+// Configuración limpia y directa del botón de entrada al multiverso
 const entrarBtn = document.getElementById('entrar-btn');
 if (entrarBtn) {
     entrarBtn.addEventListener('click', () => {
-        alert("¡El botón sí está respondiendo!"); // <-- Esto es lo nuevo
         playClickSound();
         const inicioScreen = document.getElementById('inicio-screen');
         const mainScreen = document.getElementById('main-screen');
@@ -75,7 +74,6 @@ if (entrarBtn) {
         if (mainScreen) mainScreen.classList.add('active-screen');
     });
 }
-
 
 // Secuencia de Salida con Animación y Transición de Spidey
 function triggerExit() {
@@ -163,4 +161,5 @@ function playSong(num) {
             console.log("No se pudo reproducir el archivo:", err);
         });
     });
-}
+    }
+            
